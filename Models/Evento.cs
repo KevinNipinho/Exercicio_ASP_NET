@@ -18,7 +18,7 @@ namespace ExercicioASP.NET.Models
         [Range(3, 100, ErrorMessage = "Local deve ser entre 3 e 100 caractéres")]
         public string Local {get; set;} = ""; 
 
-        [Required(ErrorMessage = "O nome é obrigatório")]
+        [Required(ErrorMessage = "A data é obrigatório")]
         public DateTime DataEvento {get; set;}
 
         public int QuantidadeVagas {get; set;}
