@@ -7,7 +7,7 @@ namespace ExercicioASP.NET.Models
         public int Id {get; set;}
 
         [Required(ErrorMessage = "O nome é obrigatório")]
-        [Range(5, 80, ErrorMessage = "Nome deve ser entre 5 e 80 caractéres")]
+        [StringLength(80, MinimumLength = 5, ErrorMessage = "Nome deve ser entre 5 e 80 caractéres")]
         public string Nome {get; set;} = "";
 
         [Required(ErrorMessage = "A descricação é obrigatório")]
@@ -15,14 +15,16 @@ namespace ExercicioASP.NET.Models
         public string Descricao {get; set;} = ""; 
 
         [Required(ErrorMessage = "O local é obrigatório")]
-        [Range(3, 100, ErrorMessage = "Local deve ser entre 3 e 100 caractéres")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Local deve ser entre 3 e 100 caractéres")]
         public string Local {get; set;} = ""; 
 
         [Required(ErrorMessage = "A data é obrigatório")]
+    
         public DateTime DataEvento {get; set;}
 
         public int QuantidadeVagas {get; set;}
 
+        [Range(0, double.MaxValue, ErrorMessage = "O valor do ingresso deve ser maior ou igual a zero.")]
         public decimal ValorIngresso {get; set;}
     }
 }
