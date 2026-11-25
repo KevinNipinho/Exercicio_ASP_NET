@@ -4,7 +4,7 @@ using ExercicioASP.NET.ViewModels;
 
 namespace ExercicioASP.NET.Controllers
 {
-    public class EventoController : Controller
+    public class EventosController : Controller
     {
 
         private static List<Evento> _eventos = new()
@@ -49,17 +49,37 @@ namespace ExercicioASP.NET.Controllers
         }
 
 
-        [HttpPost]
-        public IActionResult Buscar(BuscaEventoViewModel vm)
-        {
-            vm.Resultados = _eventos;
+ 
+[HttpPost]
+public IActionResult Buscar(BuscaEventoViewModel vm)
+{
+    var resultados = _eventos.AsEnumerable();
 
-            if(!string.IsNullOrEmpty(vm.TermoBusca))
-            {
-                vm.Resultados = _eventos.Where(a => a.Nome.Contains(vm.TermoBusca, StringComparison.OrdinalIgnoreCase)).ToList();
-            }
-             return View(vm);
-        }
+    if (!string.IsNullOrWhiteSpace(vm.NomeBusca))
+    {
+        resultados = resultados.Where(a =>
+            a.Nome.Contains(vm.NomeBusca,
+            StringComparison.OrdinalIgnoreCase));
+    }
+
+    if (!string.IsNullOrWhiteSpace(vm.LocalBusca))
+    {
+        resultados = resultados.Where(a =>
+            a.Local.Contains(vm.LocalBusca,
+            StringComparison.OrdinalIgnoreCase));
+    }
+
+    if (vm.DataInicial.HasValue)
+    {
+        resultados = resultados.Where(a =>
+            a.DataEvento.Date >= vm.DataInicial.Value.Date);
+    }
+
+    vm.Resultados = resultados.ToList();
+
+    return View(vm);
+}
+
     }
 
 

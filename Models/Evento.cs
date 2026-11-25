@@ -11,7 +11,7 @@ namespace ExercicioASP.NET.Models
         public string Nome {get; set;} = "";
 
         [Required(ErrorMessage = "A descricação é obrigatório")]
-        [MinLength(2, ErrorMessage = "Descrião deve ter no minímo 10 caracteres")]
+        [MinLength(10, ErrorMessage = "Descrição deve ter no mínimo 10 caracteres")]
         public string Descricao {get; set;} = ""; 
 
         [Required(ErrorMessage = "O local é obrigatório")]
@@ -21,7 +21,8 @@ namespace ExercicioASP.NET.Models
         [Required(ErrorMessage = "A data é obrigatório")]
     
         public DateTime DataEvento {get; set;}
-
+        
+        [Range(1, 1000, ErrorMessage = "A quantidade de vagas deve ser entre 1 e 1000")]
         public int QuantidadeVagas {get; set;}
 
         [Range(0, double.MaxValue, ErrorMessage = "O valor do ingresso deve ser maior ou igual a zero.")]
