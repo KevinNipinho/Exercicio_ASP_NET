@@ -1,31 +1,65 @@
-html {
-  font-size: 14px;
-}
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+/* Configurações gerais */
 body {
-  margin-bottom: 60px;
+    margin: 0;
+    padding: 30px;
+    font-family: Arial, sans-serif;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+/* Títulos */
+h1, h2 {
+    margin-bottom: 20px;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+/* Links e botões */
+a, button {
+    display: inline-block;
+    margin: 5px 5px 15px 0;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+/* Formulários */
+form {
+    margin-top: 20px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    padding: 8px;
+    width: 300px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 80px;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+/* Mensagens de validação */
+.field-validation-error {
+    display: block;
+    color: red;
+    margin-top: 5px;
 }
