@@ -4,7 +4,7 @@ using ExercicioASP.NET.ViewModels;
 
 namespace ExercicioASP.NET.Controllers
 {
-    public class EventosController : Controller
+    public class EventoController : Controller
     {
 
         private static List<Evento> _eventos = new()
