@@ -6,8 +6,24 @@
 <h1>Buscar eventos</h1>
 
 <form asp-action="Buscar" method="post">
-  <input asp-for="NomeBusca" placeholder="Nome do evento..." />
-  <button type="submit">Buscar</button>
+    <div>
+        <label asp-for="NomeBusca">Nome:</label>
+        <input asp-for="NomeBusca" placeholder="Nome do evento..." />
+    </div>
+
+    <div>
+        <label asp-for="LocalBusca">Local:</label>
+        <input asp-for="LocalBusca" placeholder="Local do evento..." />
+    </div>
+
+    <div>
+        <label asp-for="DataInicial">Data inicial:</label>
+        <input asp-for="DataInicial" type="date" />
+    </div>
+
+    <button type="submit">Buscar</button>
+
+    <a asp-action="Index">Voltar para listagem</a>
 </form>
 
 @if (Model.Resultados.Any())
